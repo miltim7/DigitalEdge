@@ -1,5 +1,5 @@
 // scripts\index.js
 
-import Header from "./Header.js";
-
-new Header();
+document.addEventListener('DOMContentLoaded', () => {
+  new Header();
+});
