@@ -88,6 +88,21 @@
   color: var(--color-light);
   height: clamp(1.5rem, 4vw, 1.875rem);
   white-space: nowrap;
+  transition: 
+    transform var(--transition-duration),
+    background-color var(--transition-duration);
+  cursor: pointer; /* Добавляем это свойство */
+}
+
+.header__menu-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (width <= 63.99875rem) {
@@ -320,5 +335,92 @@
     overflow: hidden;
     position: fixed;
     width: 100%;
+  }
+}
+
+/* Эффекты при наведении на пункты меню */
+.header__menu-item {
+  transition: 
+    transform var(--transition-duration),
+    background-color var(--transition-duration);
+}
+
+@media (any-hover: hover) {
+  .header__menu-item:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (any-hover: none) {
+  .header__menu-item:active {
+    transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
+/* Обновленные стили для кнопки "Связаться с нами" */
+.button {
+  transition: 
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out,
+    background 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #04dbd6 0%, #1461cc 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: -1;
+}
+
+@media (any-hover: hover) {
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(4, 219, 214, 0.25);
+  }
+  
+  .button:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (any-hover: none) {
+  .button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(4, 219, 214, 0.25);
+  }
+  
+  .button:active::before {
+    opacity: 1;
+  }
+}
+
+/* Обновленные стили для пунктов меню */
+.header__menu-item {
+  transition: 
+    transform 0.25s ease-out,
+    background-color 0.3s ease-out;
+}
+
+@media (any-hover: hover) {
+  .header__menu-item:hover {
+    transform: translateY(-2px) scale(1.03);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media (any-hover: none) {
+  .header__menu-item:active {
+    transform: translateY(-1px) scale(1.01);
+    background-color: rgba(255, 255, 255, 0.15);
   }
 }
