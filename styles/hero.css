@@ -1,0 +1,424 @@
+/* styles\hero.css */
+
+.hero {
+  padding-top: clamp(2rem, 8vw, 4.625rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: clamp(0.8rem, 3vw, 1rem);
+  position: relative;
+}
+
+.hero__title,
+.hero__description {
+  text-align: center;
+  max-width: clamp(25rem, 95vw, 57.0625rem);
+}
+
+.hero__title {
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+.hero__description {
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+  max-width: clamp(22rem, 95vw, 50rem);
+}
+
+/* Адаптивность для планшетов */
+@media (width <=64rem) {
+  .hero {
+    padding-top: clamp(2.5rem, 6vw, 4rem);
+    row-gap: clamp(0.6rem, 2vw, 0.8rem);
+  }
+
+  .hero__title {
+    margin-bottom: clamp(0.4rem, 1.5vw, 0.8rem);
+    max-width: clamp(28rem, 95vw, 45rem);
+  }
+
+  .hero__description {
+    margin-bottom: clamp(0.8rem, 3vw, 1.5rem);
+    max-width: clamp(26rem, 95vw, 42rem);
+  }
+}
+
+/* Адаптивность для мобильных */
+@media (width <=48rem) {
+  .hero {
+    padding-top: clamp(1.5rem, 6vw, 3rem);
+    row-gap: clamp(0.5rem, 2vw, 0.8rem);
+    padding-inline: 1rem;
+  }
+
+  .hero__title {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  .hero__description {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+  
+  .hero__description p {
+    max-width: 100%;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (width <=320px) {
+  .hero {
+    padding-top: 1.2rem;
+    row-gap: 0.4rem;
+  }
+
+  .hero__title {
+    margin-bottom: 0.3rem;
+    max-width: 98vw;
+  }
+
+  .hero__description {
+    margin-bottom: 0.8rem;
+    max-width: 98vw;
+  }
+
+  .hero__description p {
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+}
+
+.hero__bg-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+@media (width <=63.99875rem) {
+  .hero__bg-images {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (width <=47.99875rem) {
+  .hero__bg-images {
+    bottom: clamp(15rem, 40vw, 25rem);
+  }
+}
+
+.hero__bg-image-1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.hero__bg-image-2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.directions {
+  cursor: url(../../images/hero/cursor.svg), pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  margin-top: clamp(0.3rem, 2vw, 0.5625rem);
+  width: clamp(22rem, 90vw, 52rem);
+  padding: clamp(1.8rem, 4vw, 3rem);
+  height: clamp(16rem, 35vw, 18rem);
+  background: linear-gradient(50deg, rgb(8, 27, 57) 0%, rgb(6, 13, 29) 100%) padding-box, linear-gradient(20deg, rgba(88, 141, 214, 0.2) 0%, rgba(183, 206, 237, 0.09) 57%, rgba(255, 255, 255, 0) 100%) border-box;
+  border: 0.125rem solid transparent;
+  border-radius: 1.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Планшет */
+@media (width <=64rem) {
+  .directions {
+    width: clamp(28rem, 85vw, 42rem);
+    height: clamp(18rem, 38vw, 22rem);
+    padding: clamp(2rem, 3.5vw, 2.5rem);
+    margin-top: clamp(0.5rem, 1.5vw, 1rem);
+  }
+}
+
+/* Мобильные */
+@media (width <=48rem) {
+  .directions {
+    width: clamp(18rem, 95vw, 28rem);
+    height: auto;
+    min-height: clamp(18rem, 45vw, 24rem);
+    padding: clamp(1.5rem, 4vw, 2rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.6rem, 2vw, 1rem);
+    margin-top: clamp(0.8rem, 3vw, 1.5rem);
+  }
+}
+
+.directions__item {
+  position: absolute;
+  padding: clamp(0.5rem, 1.2vw, 0.8rem) clamp(1.8rem, 3vw, 3.2rem);
+  border-radius: 0.625rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floating 6s ease-in-out infinite;
+  overflow: hidden;
+  background-clip: padding-box;
+  /* Адаптивные размеры по умолчанию */
+  width: auto;
+  height: auto;
+  min-width: clamp(4rem, 8vw, 6rem);
+  max-width: clamp(12rem, 20vw, 16rem);
+  min-height: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+/* Мобильная адаптация */
+@media (width <=48rem) {
+  .directions__item {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 0;
+    padding: clamp(0.5rem, 2vw, 0.7rem) clamp(1.2rem, 3vw, 1.8rem);
+    flex: 0 1 auto;
+    min-width: clamp(5rem, 22vw, 8rem);
+    max-width: clamp(9rem, 40vw, 14rem);
+    min-height: clamp(2.8rem, 6vw, 4rem);
+  }
+}
+
+@keyframes floating {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) rotate(0.6deg);
+  }
+
+  66% {
+    transform: translateY(-4px) rotate(-0.6deg);
+  }
+}
+
+@keyframes floating-alt {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-6px) rotate(-0.5deg);
+  }
+
+  66% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+@keyframes floating-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(0.4deg);
+  }
+}
+
+/* ИСПРАВЛЕННЫЙ ХОВЕР - СТРОГО ПО ГРАНИЦАМ ЭЛЕМЕНТА */
+@media (any-hover: hover) {
+  .directions__item:hover {
+    z-index: 100;
+    animation-play-state: paused;
+    transform: scale(1.05) translateY(-12px);
+  }
+
+  /* Ховер эффект только для внутренней области */
+  .directions__item:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 255, 247, 0.6);
+    border-radius: inherit;
+    z-index: -1;
+    box-shadow: 0rem 0rem 0.625rem 0.4375rem rgba(34, 60, 80, 0.5) inset;
+  }
+}
+
+@media (any-hover: none) {
+  .directions__item:active {
+    z-index: 100;
+    transform: scale(1.02) translateY(-8px);
+  }
+
+  .directions__item:active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 255, 247, 0.6);
+    border-radius: inherit;
+    z-index: -1;
+    box-shadow: 0rem 0rem 0.625rem 0.4375rem rgba(34, 60, 80, 0.5) inset;
+  }
+}
+
+/* АДАПТИВНЫЕ РАЗМЕРЫ ДЛЯ КАЖДОГО ТИПА ФОНА */
+.directions__item--bg-1 {
+  background: url(../../images/hero/directions_bg1.svg) center/contain no-repeat;
+  text-align: center;
+  /* Компактные размеры для bg-1 */
+  width: clamp(5rem, 10vw, 7.5rem);
+  min-width: clamp(5rem, 10vw, 7.5rem);
+  max-width: clamp(7rem, 12vw, 9rem);
+}
+
+.directions__item--bg-2 {
+  background: url(../../images/hero/directions_bg2.svg) center/contain no-repeat;
+  text-align: center;
+  /* Большие размеры для bg-2 */
+  width: clamp(8rem, 16vw, 12rem);
+  min-width: clamp(8rem, 16vw, 12rem);
+  max-width: clamp(10rem, 18vw, 14rem);
+}
+
+.directions__item--bg-3 {
+  background: url(../../images/hero/directions_bg3.svg) center/contain no-repeat;
+  text-align: center;
+  /* Средние размеры для bg-3 */
+  width: clamp(6rem, 12vw, 9rem);
+  min-width: clamp(6rem, 12vw, 9rem);
+  max-width: clamp(8rem, 14vw, 11rem);
+}
+
+.directions__item--bg-4 {
+  background: url(../../images/hero/directions_bg4.svg) center/contain no-repeat;
+  text-align: center;
+  /* Средние размеры для bg-4 */
+  width: clamp(6.5rem, 13vw, 9.5rem);
+  min-width: clamp(6.5rem, 13vw, 9.5rem);
+  max-width: clamp(8.5rem, 15vw, 11.5rem);
+}
+
+/* Планшет адаптация */
+@media (width <=64rem) {
+  .directions__item--bg-1 {
+    width: clamp(4.5rem, 12vw, 6.5rem);
+    min-width: clamp(4.5rem, 12vw, 6.5rem);
+    max-width: clamp(6rem, 14vw, 8rem);
+  }
+
+  .directions__item--bg-2 {
+    width: clamp(7rem, 18vw, 10rem);
+    min-width: clamp(7rem, 18vw, 10rem);
+    max-width: clamp(9rem, 20vw, 12rem);
+  }
+
+  .directions__item--bg-3 {
+    width: clamp(5.5rem, 14vw, 7.5rem);
+    min-width: clamp(5.5rem, 14vw, 7.5rem);
+    max-width: clamp(7rem, 16vw, 9rem);
+  }
+
+  .directions__item--bg-4 {
+    width: clamp(6rem, 15vw, 8rem);
+    min-width: clamp(6rem, 15vw, 8rem);
+    max-width: clamp(7.5rem, 17vw, 9.5rem);
+  }
+}
+
+/* Мобильная адаптация */
+@media (width <=48rem) {
+
+  .directions__item--bg-1,
+  .directions__item--bg-2,
+  .directions__item--bg-3,
+  .directions__item--bg-4 {
+    width: auto !important;
+    min-width: clamp(5rem, 24vw, 7.5rem) !important;
+    max-width: clamp(8rem, 35vw, 11rem) !important;
+  }
+}
+
+.directions__text {
+  font-size: clamp(0.8rem, 2.2vw, 1.3rem);
+  background: linear-gradient(270deg, #fff 0%, #82a7da 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Адаптивный текст для планшетов */
+@media (width <=64rem) {
+  .directions__text {
+    font-size: clamp(0.75rem, 2.4vw, 1.2rem);
+  }
+}
+
+/* Адаптивный текст для мобильных */
+@media (width <=48rem) {
+  .directions__text {
+    font-size: clamp(0.7rem, 3.8vw, 1.1rem);
+    white-space: normal;
+  }
+}
+
+#text-follow {
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  position: fixed;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: transform 0.1s ease;
+  z-index: 1000;
+  background-color: #04dbd6;
+  color: var(--color-dark);
+  border-radius: 1.25rem;
+  padding: clamp(0.15rem, 0.5vw, 0.25rem) clamp(0.4rem, 1vw, 0.6rem);
+}
+
+@media (width <=48rem) {
+  #text-follow {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

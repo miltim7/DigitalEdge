@@ -1,0 +1,250 @@
+/* styles\info.css */
+
+.info {
+    display: grid;
+    row-gap: 1.25rem;
+    font-family: 'Gilroy';
+    margin-top: 150px;
+}
+
+@media (width <=90.06125rem) {
+    .info {
+        gap: 0.625rem;
+        margin-top: 100px;
+    }
+}
+@media (width <=47.99875rem) {
+    .info {
+        row-gap: 0.5rem;
+        padding-inline: 1rem;
+        padding-top: clamp(1.5rem, 4vw, 2.5rem);
+        margin-top: 50px;
+    }
+}
+
+.info__title {
+    padding-bottom: 1.5625rem;
+}
+
+@media (width <=64rem) {
+    .info__title {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .info {
+        bottom: 42rem;
+    }
+}
+
+.info__list {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (width <=90.06125rem) {
+    .info__list {
+        gap: 0.625rem;
+    }
+}
+
+@media (width <=63.99875rem) {
+    .info__list {
+        gap: 0.9375rem;
+        justify-items: center;
+    }
+}
+
+@media (width <=47.99875rem) {
+    .info__list {
+        gap: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+.info__list--1 {
+    grid-template-columns: 40% 37% 23%;
+}
+
+@media (width <=63.99875rem) {
+    .info__list--1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info__list--2 {
+    grid-template-columns: 43% 21% 36%;
+}
+
+@media (width <=63.99875rem) {
+    .info__list--2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    height: 16.5625rem;
+    padding: 1.875rem;
+    display: flex;
+    justify-content: space-between;
+    -moz-column-gap: 1.875rem;
+    column-gap: 1.875rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgb(8, 24, 53) 0%, rgb(12, 50, 105) 100%);
+    border-radius: 1.25rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (any-hover: hover) {
+    .card:hover {
+        background: linear-gradient(135deg, rgb(7, 192, 211) 0%, rgb(20, 97, 204) 100%);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(7, 192, 211, 0.3);
+        transition: .3s ease;
+    }
+}
+
+@media (any-hover: none) {
+    .card:active {
+        background: linear-gradient(135deg, rgb(7, 192, 211) 0%, rgb(20, 97, 204) 100%);
+        transform: translateY(-2px);
+    }
+}
+
+@media (width <=63.99875rem) {
+    .card {
+        width: calc(100vw - 10rem);
+        max-width: calc(100vw - 2rem);
+        margin: 0 auto;
+    }
+}
+
+@media (width <=47.99875rem) {
+    .card {
+        width: calc(100vw - 2rem);
+        max-width: calc(100vw - 2rem);
+        height: 15rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (width <=32rem) {
+    .card {
+        height: 14rem;
+        padding: 1.25rem;
+    }
+}
+
+.card__main {
+    display: grid;
+    row-gap: 1.875rem;
+}
+
+.card__text {
+    color: var(--color-light);
+}
+
+.card__price {
+    text-wrap: nowrap;
+    background: linear-gradient(var(--color-light), var(--color-light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card__image {
+    position: relative;
+    top: 1.875rem;
+    left: 8%;
+}
+
+.card__image--alt {
+    position: relative;
+    left: 6%;
+}
+
+
+.rate_proj {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 0 auto;
+}
+
+.rate_proj p {
+    font-weight: 600;
+    font-size: 32px;
+    color: #fff;
+    line-height: 40px;
+}
+
+.rate_proj p span {
+    background: linear-gradient(to right, #1461CC, #04DBD6);
+    padding: 6px 24px;
+    border-radius: 34px;
+    font-size: 32px;
+}
+
+.rate_proj p:nth-child(1) {
+    margin-left: -170px;
+}
+
+.rate_proj p:nth-child(2) {
+    margin-right: -170px;
+}
+
+@media (max-width: 1024px) {
+    .rate_proj p {
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 40px;
+    }
+
+    .rate_proj p span {
+        padding: 5px 22px;
+        border-radius: 34px;
+        font-size: 27px;
+    }
+
+    .rate_proj p:nth-child(1) {
+        margin-left: -0;
+    }
+
+    .rate_proj p:nth-child(2) {
+        margin-right: -0;
+    }
+}
+
+@media (max-width: 768px) {
+    .rate_proj p {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .rate_proj p span {
+        padding: 4px 18px;
+        border-radius: 24px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 410px) {
+    .rate_proj p {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .rate_proj p span {
+        padding: 3px 16px;
+        border-radius: 20px;
+        font-size: 18px;
+    }
+}

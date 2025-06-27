@@ -1,0 +1,277 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <title>Digital Edge</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/header.css" />
+  <link rel="stylesheet" href="./styles/hero.css" />
+  <link rel="stylesheet" href="./styles/info.css" />
+  <link rel="stylesheet" href="./styles/projects.css">
+  <script src="./scripts/CursorFollow.js" defer></script>
+  <script src="./scripts/index.js" type="module" defer></script>
+</head>
+
+<body>
+  <header class="header" data-js-header>
+    <div class="header-inner container">
+      <a href="/"><img class="header__logo" src="./images/logo.svg" alt="Digital Edge Logo" width="141" height="141"
+        loading="lazy" /></a>
+      <div class="header__overlay" data-js-header-overlay>
+        <nav class="header__menu">
+          <ul class="header__menu-list">
+            <li class="header__menu-item">
+              <a href="#services" class="header__menu-link">Услуги</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#projects" class="header__menu-link">Кейсы</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__contacts visible-mobile">
+          <p class="header__email">manager@degit.tech</p>
+          <button type="button" class="header__button button">
+            Связаться с нами
+          </button>
+        </div>
+      </div>
+      <div class="header__contacts hidden-mobile">
+        <p class="header__email">manager@degit.tech</p>
+        <button type="button" class="header__button button">
+          Связаться с нами
+        </button>
+      </div>
+
+      <button class="header__burger-button burger-button visible-mobile" type="button" aria-label="Open menu"
+        title="Open menu" data-js-header-burger-button>
+        <span class="burger-button__line"></span>
+        <span class="burger-button__line"></span>
+        <span class="burger-button__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <h1 class="hero__title" id="hero-title">Технологии, которые решают</h1>
+      <div class="hero__description">
+        <p>
+          Создаём надёжные и масштабируемые цифровые продукты. Ориентированы
+          на долгосрочное сотрудничество, предоставляем подробный отчет о
+          проделанной работе.
+        </p>
+      </div>
+
+      <div class="hero__main directions" id="directions-container">
+        <div class="directions__item directions__item--bg-1">
+          <span class="directions__text">B2B</span>
+        </div>
+        <div class="directions__item directions__item--bg-1">
+          <span class="directions__text">B2C</span>
+        </div>
+        <div class="directions__item directions__item--bg-2">
+          <span class="directions__text">Разработка</span>
+        </div>
+        <div class="directions__item directions__item--bg-2">
+          <span class="directions__text">Консалтинг</span>
+        </div>
+        <div class="directions__item directions__item--bg-3">
+          <span class="directions__text">B2YOU</span>
+        </div>
+        <div class="directions__item directions__item--bg-4">
+          <span class="directions__text">DevOps</span>
+        </div>
+        <div class="directions__item directions__item--bg-3">
+          <span class="directions__text">AI/ML</span>
+        </div>
+        <div class="directions__item directions__item--bg-4">
+          <span class="directions__text">Mobile</span>
+        </div>
+
+        <div id="text-follow">Digital Edge</div>
+      </div>
+
+    </section>
+
+    <div class="hero__bg-images">
+      <img class="hero__bg-image-1" src="./images/hero/bg1.png" alt="" width="448" height="713" loading="lazy" />
+      <img class="hero__bg-image-2" src="./images/hero/bg2.png" alt="" width="405" height="706" loading="lazy" />
+    </div>
+
+    <section class="info container" aria-labelledby="info-title" id="services">
+      <h2 class="info__title" id="info-title">Что мы делаем</h2>
+      <ul class="info__list info__list--1">
+        <li class="info__item">
+          <div class="info__card card">
+            <div class="card__main">
+              <img src="./images/info/icon-1.svg" alt="" class="card__icon" width="50" height="50" loading="lazy" />
+              <div class="card__text">
+                <p class="card__title">Backend (Python, PHP)</p>
+                <p class="card__price h2">
+                  от $13/<span class="h3">час</span>
+                </p>
+              </div>
+            </div>
+            <img src="./images/info/1.png" alt="" class="card__image" width="278" height="243" loading="lazy" />
+          </div>
+        </li>
+        <li class="info__item">
+          <div class="info__card card">
+            <div class="card__main">
+              <img src="./images/info/icon-2.svg" alt="" class="card__icon" width="50" height="50" loading="lazy" />
+              <div class="card__text">
+                <p class="card__title">Frontend (React, Vue)</p>
+                <p class="card__price h2">
+                  от $13/<span class="h3">час</span>
+                </p>
+              </div>
+            </div>
+            <img src="./images/info/2.png" alt="" class="card__image" width="278" height="243" loading="lazy" />
+          </div>
+        </li>
+        <li class="info__item">
+          <div class="info__card card">
+            <div class="card__main">
+              <img src="./images/info/icon-3.svg" alt="" class="card__icon" width="50" height="50" loading="lazy" />
+              <div class="card__text">
+                <p class="card__title">
+                  DevOps / CI/CD (Docker,<br />
+                  Kubernetes, Yandex Cloud)
+                </p>
+                <p class="card__price h2">
+                  от $20/<span class="h3">час</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="info__list info__list--2">
+        <li class="info__item">
+          <div class="info__card card">
+            <div class="card__main">
+              <img src="./images/info/icon-4.svg" alt="" class="card__icon" width="50" height="50" loading="lazy" />
+              <div class="card__text">
+                <p class="card__title">
+                  Создание Telegram ботов под<br />
+                  ключ с установкой на сервер и CI/CD
+                </p>
+                <p class="card__price h2">от $160</p>
+              </div>
+            </div>
+            <img src="./images/info/3.png" alt="" class="card__image card__image--alt hidden-mobile" width="157"
+              height="243" loading="lazy" />
+          </div>
+        </li>
+        <li class="info__item">
+          <div class="info__card card">
+            <div class="card__main">
+              <img src="./images/info/icon-5.svg" alt="" class="card__icon" width="50" height="50" loading="lazy" />
+              <div class="card__text">
+                <p class="card__title">Аудит и сопровождение</p>
+                <p class="card__price h2">от $200</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="info__item">
+          <div class="info__card card">
+            <div class="card__main">
+              <img src="./images/info/icon-6.svg" alt="" class="card__icon" width="50" height="50" loading="lazy" />
+              <div class="card__text">
+                <p class="card__title">
+                  Разработка сложных проектов под ключ
+                </p>
+                <p class="card__price h2">от $1500</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="rate_proj">
+        <p>Оценка проекта — <span>бесплатно</span></p>
+        <p>Работаем гибко и прозрачно</p>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="projects__header">
+        <h2 class="projects__title" id="projects-title">Проекты</h2>
+        <div class="projects__description">
+          <p>Мы решаем задачи бизнеса с помощью современных технологий.</p>
+          <p>Несколько реализованных кейсов:</p>
+        </div>
+        <button type="button" class="projects__button button">
+          Смотреть все проекты
+        </button>
+      </div>
+
+      <div class="proj_container">
+        <!-- Левая колонка -->
+        <div class="proj_column proj_left">
+          <div class="proj_card-wrapper">
+            <div class="proj_card">
+              <div class="proj_content">Миграция инфраструктуры с хостинга на Yandex Cloud, включая серверы и CDN</div>
+            </div>
+            <div class="proj_images">
+              <img src="images/projects/ellipse1.png" class="proj_side-image ellipse ellipse1" alt="">
+              <img src="images/projects/vector1.png" class="proj_side-image vector vector1" alt="">
+            </div>
+          </div>
+
+          <div class="proj_card-wrapper">
+            <div class="proj_card">
+              <div class="proj_content">Миграция сервисов с systemd на Kubernetes и построение CI/CD на базе GitOps
+                (Terraform, FluxCD)</div>
+            </div>
+            <div class="proj_images">
+              <img src="images/projects/ellipse1.png" class="proj_side-image ellipse ellipse2" alt="">
+              <img src="images/projects/vector2.png" class="proj_side-image vector vector2" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Центральный логотип -->
+        <div class="proj_center">
+          <div class="proj_image-container">
+            <img src="images/projects/logo.png" class="proj_image" alt="">
+          </div>
+        </div>
+
+        <!-- Правая колонка -->
+        <div class="proj_column proj_right">
+          <div class="proj_card-wrapper">
+            <div class="proj_images">
+              <img src="images/projects/vector3.png" class="proj_side-image vector vector3" alt="">
+              <img src="images/projects/ellipse2.png" class="proj_side-image ellipse ellipse3" alt="">
+            </div>
+            <div class="proj_card">
+              <div class="proj_content">Построение BI-отчетности на базе Yandex Datalens для кабинетов маркетплейсов WB,
+                Ozon, YM, МойСклад и реализация сервисов сбора отчетности на Python</div>
+            </div>
+          </div>
+
+          <div class="proj_card-wrapper">
+            <div class="proj_images">
+              <img src="images/projects/vector4.png" class="proj_side-image vector vector4" alt="">
+              <img src="images/projects/ellipse2.png" class="proj_side-image ellipse ellipse4" alt="">
+            </div>
+            <div class="proj_card">
+              <div class="proj_content">Разработка микросервисов Backend Python (FastAPI) и Django для сервисов
+                арбитража трафика</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+
+</html>
