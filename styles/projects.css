@@ -1,4 +1,5 @@
-/* Основные стили */
+/* styles\projects.css */
+
 .projects {
     width: 100%;
     max-width: 1350px;
@@ -9,7 +10,6 @@
     font-family: 'Manrope';
 }
 
-
 .projects__header {
     display: flex;
     align-items: center;
@@ -19,7 +19,6 @@
 }
 
 @media (width <=63.99875rem) {
-
     .projects__header {
         flex-direction: column;
         text-align: center;
@@ -51,20 +50,21 @@
     flex-shrink: 0;
 }
 
-/* Контейнер сетки */
 .proj_container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
     width: 100%;
+    position: relative;
 }
 
-/* Центральный логотип */
 .proj_center {
     display: flex;
     justify-content: center;
     align-items: center;
     order: -1;
+    position: relative;
+    z-index: 3;
 }
 
 .proj_image-container {
@@ -79,144 +79,336 @@
     box-shadow: 0 0 80px 60px rgba(20, 97, 204, 0.4);
 }
 
+.proj_container.in-view .proj_image-container {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 80px 60px rgba(20, 97, 204, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 100px 80px rgba(20, 97, 204, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 80px 60px rgba(20, 97, 204, 0.4);
+    }
+}
+
 .proj_image {
     width: 84px;
     height: 84px;
     object-fit: contain;
 }
 
-/* Обертка для колонок */
 .proj_columns-wrapper {
     display: flex;
     gap: 30px;
     width: 100%;
 }
 
-/* Колонки */
 .proj_column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 60px;
 }
 
-/* Обертка карточки */
 .proj_card-wrapper {
     display: flex;
     align-items: stretch;
 }
 
-/* Карточки */
 .proj_card {
     flex: 1;
     min-width: 0;
-    padding: 20px 28px;
-    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     border: 1.5px solid rgba(88, 141, 214, 0.7);
-    border-radius: 18px;
-    color: #fff;
-    font-size: 18px;
-    /* Увеличиваем размер текста */
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-/* Градиенты для карточек */
+.proj_card:nth-child(1) {
+    animation: float 6s ease-in-out infinite;
+}
+
+.proj_left .proj_card-wrapper:nth-child(2) .proj_card {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -1.5s;
+}
+
+.proj_right .proj_card-wrapper:nth-child(1) .proj_card {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+.proj_right .proj_card-wrapper:nth-child(2) .proj_card {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -4.5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@media (any-hover: hover) {
+    .proj_card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(4, 219, 214, 0.6);
+        box-shadow: 0 10px 30px rgba(20, 97, 204, 0.3);
+        animation-play-state: paused;
+    }
+}
+
 .proj_left .proj_card {
-    background: linear-gradient(270deg, rgba(20, 97, 204, 0.1) 10%, rgba(20, 97, 204, 0.39) 69%);
+    background: linear-gradient(180deg, #0A1A2E 0%, rgba(20, 97, 204, 0.2) 100%);
 }
 
 .proj_right .proj_card {
-    background: linear-gradient(90deg, rgba(20, 97, 204, 0.1) 10%, rgba(20, 97, 204, 0.39) 69%);
+    background: linear-gradient(180deg, #0A1A2E 0%, rgba(20, 97, 204, 0.2) 100%);
 }
 
-/* Контент карточки */
-.proj_content {
-    line-height: 1.5;
-    margin: 0;
-    width: 100%;
-    color: inherit;
-    font-size: inherit;
-    /* Наследует размер шрифта от карточки */
-    font-family: inherit;
-    /* Наследует шрифт от родителя */
-}
-
-/* Блок с фотографиями */
-.proj_images {
+.proj_browser-header {
+    background: rgba(88, 141, 214, 0.1);
+    padding: 12px 16px;
     display: flex;
     align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(88, 141, 214, 0.3);
 }
 
-/* Общие стили для всех изображений */
-.proj_side-image {
-    display: block;
-    object-fit: contain;
+.proj_browser-dots {
+    display: flex;
+    gap: 6px;
 }
 
-/* Стили для ellipse */
-.proj_side-image.ellipse {
-    width: 8px;
-    height: 16px;
+.proj_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
 }
 
-/* Стили для vector */
-.proj_side-image.vector {
+.proj_dot--red {
+    background: #FF5F57;
+}
+
+.proj_dot--yellow {
+    background: #FFBD2E;
+}
+
+.proj_dot--green {
+    background: #28CA42;
+}
+
+.proj_browser-bar {
+    flex: 1;
+    background: rgba(6, 12, 26, 0.5);
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.proj_browser-url {
+    font-size: 12px;
+    color: rgba(126, 226, 226, 0.7);
+    font-family: monospace;
+}
+
+.proj_card-screen {
+    flex: 1;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.proj_card-visual {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: unset;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.proj_card-icon {
+    width: 100%;
     height: auto;
 }
 
-/* Индивидуальные размеры и отступы vector */
-.vector1 {
-    width: 128px;
-    height: 72px;
-    margin-top: 70px;
+.proj_card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.vector2 {
-    width: 128px;
-    height: 46px;
-    margin-top: -44px;
+@media (any-hover: hover) {
+    .proj_card:hover .proj_card-image {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
 }
 
-.vector3 {
-    width: 129px;
-    height: 87px;
-    margin-top: 85px;
+.proj_card-info {
+    padding: 20px 25px 25px;
+    border-top: 1px solid rgba(88, 141, 214, 0.2);
+    background: rgba(6, 12, 26, 0.4);
 }
 
-.vector4 {
-    width: 129px;
-    height: 66px;
-    margin-top: -65px;
+.proj_card-title {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    color: #FFFFFF;
+    line-height: 1.2;
 }
 
-/* Адаптивность */
+.proj_card-subtitle {
+    font-size: 14px;
+    color: rgba(126, 226, 226, 0.8);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.proj_vectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.proj_vector-line {
+    stroke-width: 2;
+    opacity: 0;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.proj_container.in-view .proj_vector-line {
+    animation: drawLine 2.5s ease-out forwards;
+    opacity: 0.7;
+}
+
+.proj_container.in-view .proj_vector-line--1 {
+    animation-delay: 0.3s;
+}
+
+.proj_container.in-view .proj_vector-line--2 {
+    animation-delay: 0.6s;
+}
+
+.proj_container.in-view .proj_vector-line--3 {
+    animation-delay: 0.9s;
+}
+
+.proj_container.in-view .proj_vector-line--4 {
+    animation-delay: 1.2s;
+}
+
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 1000;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.proj_vector-dot {
+    filter: drop-shadow(0 0 6px rgba(4, 219, 214, 0.6));
+    opacity: 0;
+    transform: scale(0);
+}
+
+.proj_container.in-view .proj_vector-dot {
+    animation: fadeInDot 0.5s ease-out forwards;
+}
+
+.proj_container.in-view .proj_vector-dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.proj_container.in-view .proj_vector-dot:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.proj_container.in-view .proj_vector-dot:nth-child(6) {
+    animation-delay: 0.9s;
+}
+
+.proj_container.in-view .proj_vector-dot:nth-child(8) {
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeInDot {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+@media (any-hover: hover) {
+    .proj_card:hover~.proj_vectors .proj_vector-line {
+        opacity: 1 !important;
+        filter: drop-shadow(0 0 8px rgba(4, 219, 214, 0.5));
+    }
+
+    .proj_card:hover~.proj_vectors .proj_vector-dot {
+        filter: drop-shadow(0 0 12px rgba(4, 219, 214, 0.8));
+    }
+}
+
 @media (min-width: 1025px) {
-
-    /* Десктопная версия */
     .proj_container {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
         max-width: 1350px;
         margin: 0 auto;
+        gap: 80px;
     }
 
     .proj_center {
         order: 0;
+        margin: 0 40px;
     }
 
     .proj_columns-wrapper {
         display: contents;
     }
 
-    /* Левая колонка: карточка | фото */
     .proj_left .proj_card-wrapper {
         flex-direction: row;
     }
 
-    /* Правая колонка: фото | карточка */
     .proj_right .proj_card-wrapper {
         flex-direction: row;
     }
@@ -227,35 +419,54 @@
 }
 
 @media (max-width: 1024px) {
-
     .projects {
         margin-top: 100px;
     }
 
-    /* Планшетная версия - 2 карточки в ряд */
+    .proj_container {
+        justify-content: center;
+        align-items: center;
+    }
+
     .proj_columns-wrapper {
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     .proj_column {
         flex: 0 0 calc(50% - 15px);
+        gap: 30px;
+        max-width: 380px;
     }
 
     .proj_card-wrapper {
         flex-direction: column;
     }
 
-    .proj_images {
-        display: none;
+    .proj_vectors {
+        display: none !important;
     }
 
-    /* Единый градиент для всех карточек */
+    .proj_images {
+        display: none !important;
+    }
+
     .proj_card {
         background: linear-gradient(270deg, rgba(20, 97, 204, 0.1) 10%, rgba(20, 97, 204, 0.39) 69%) !important;
         border-radius: 18px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
     }
+
+    .proj_card-screen {
+        min-height: 120px;
+        padding: 0 !important;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -263,13 +474,107 @@
         margin-top: 50px;
     }
 
-    /* Мобильная версия - 1 карточка в ряд */
+    .proj_container {
+        gap: 30px;
+    }
+
     .proj_column {
         flex: 0 0 100%;
+        gap: 25px;
+        max-width: 500px;
     }
 
     .proj_image-container {
         width: 160px;
         height: 160px;
+    }
+
+    .proj_browser-header {
+        padding: 10px 12px;
+    }
+
+    .proj_dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .proj_browser-url {
+        font-size: 11px;
+    }
+
+    .proj_card-screen {
+        min-height: 110px;
+        padding: 0 !important;
+    }
+
+    .proj_card-info {
+        padding: 16px 20px 20px;
+    }
+
+    .proj_card-title {
+        font-size: 18px;
+    }
+
+    .proj_card-subtitle {
+        font-size: 13px;
+    }
+
+    .proj_card-visual {
+        max-width: 100%;
+        aspect-ratio: 3/2;
+    }
+}
+
+@media (max-width: 500px) {
+    .proj_column {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .proj_card {
+        width: 100%;
+    }
+
+    .proj_card-visual {
+        max-width: 100%;
+        aspect-ratio: 3/2;
+    }
+
+    .proj_card-screen {
+        min-height: 100px;
+        padding: 0 !important;
+    }
+}
+
+.proj_card {
+    cursor: pointer;
+    position: relative;
+}
+
+.proj_card::after {
+    content: 'Нажмите для подробностей';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #04dbd6;
+    color: #060c1a;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(4, 219, 214, 0.5);
+    border: 1px solid rgba(4, 219, 214, 0.8);
+}
+
+@media (any-hover: hover) {
+    .proj_card:hover::after {
+        opacity: 1;
+        bottom: 15px;
+        box-shadow: 0 4px 15px rgba(4, 219, 214, 0.7);
     }
 }

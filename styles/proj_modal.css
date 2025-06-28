@@ -1,0 +1,152 @@
+.proj-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.proj-modal.active {
+    display: flex;
+}
+
+.proj-modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(6, 12, 26, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.proj-modal__content {
+    position: relative;
+    background: linear-gradient(180deg, #0A1A2E 0%, rgba(20, 97, 204, 0.2) 100%);
+    border: 1.5px solid rgba(88, 141, 214, 0.7);
+    border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 10001;
+}
+
+.proj-modal__close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin-bottom: 15px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: #04dbd6;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proj-modal__close:hover {
+    color: #007472;
+}
+
+.proj-modal__header {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.proj-modal__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.proj-modal__body {
+    padding: 40px;
+}
+
+.proj-modal__title {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+}
+
+.proj-modal__subtitle {
+    font-size: 18px;
+    color: #7ee2e2;
+    margin: 0 0 30px 0;
+}
+
+.proj-modal__description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 30px;
+}
+
+.proj-modal__tech {
+    margin-bottom: 40px;
+}
+
+.proj-modal__tech h3 {
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0 0 15px 0;
+}
+
+.proj-modal__tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.proj-modal__tech-item {
+    background: rgba(88, 141, 214, 0.3);
+    border: 1px solid rgba(88, 141, 214, 0.7);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #7ee2e2;
+}
+
+/* .proj-modal__link {
+  display: inline-flex;
+  background: #04dbd6;
+  color: #060c1a;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+} */
+
+@media (max-width: 768px) {
+    .proj-modal__header {
+        height: 200px;
+    }
+
+    .proj-modal__body {
+        padding: 25px;
+    }
+
+    .proj-modal__title {
+        font-size: 24px;
+    }
+
+    .proj-modal__subtitle {
+        font-size: 16px;
+    }
+}

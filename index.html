@@ -13,9 +13,12 @@
   <link rel="stylesheet" href="./styles/hero.css" />
   <link rel="stylesheet" href="./styles/info.css" />
   <link rel="stylesheet" href="./styles/projects.css">
+  <link rel="stylesheet" href="styles/proj_modal.css">
   <script src="./scripts/CursorFollow.js" defer></script>
   <script src="./scripts/Header.js" defer></script>
+  <script src="./scripts/ProjectVectors.js" defer></script>
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/ProjectModal.js" defer></script>
 </head>
 
 <body>
@@ -214,26 +217,97 @@
         </button>
       </div>
 
+      <!-- Найдите секцию projects и замените содержимое proj_container на это: -->
+
       <div class="proj_container">
+        <!-- SVG для векторных линий -->
+        <svg class="proj_vectors" viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="vectorGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#1461cc;stop-opacity:0.1" />
+              <stop offset="50%" style="stop-color:#04dbd6;stop-opacity:0.5" />
+              <stop offset="100%" style="stop-color:#1461cc;stop-opacity:0.8" />
+            </linearGradient>
+            <linearGradient id="vectorGradient2" x1="100%" y1="0%" x2="0%" y2="0%">
+              <stop offset="0%" style="stop-color:#1461cc;stop-opacity:0.1" />
+              <stop offset="50%" style="stop-color:#04dbd6;stop-opacity:0.5" />
+              <stop offset="100%" style="stop-color:#1461cc;stop-opacity:0.8" />
+            </linearGradient>
+          </defs>
+
+          <!-- Линии от левых карточек -->
+          <path class="proj_vector-line proj_vector-line--1" d="M 150 200 Q 400 180 600 400"
+            stroke="url(#vectorGradient1)" stroke-width="2" fill="none" opacity="0.6" />
+          <circle class="proj_vector-dot" cx="150" cy="200" r="4" fill="#04dbd6" opacity="0.8">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" />
+          </circle>
+
+          <path class="proj_vector-line proj_vector-line--2" d="M 150 600 Q 400 620 600 400"
+            stroke="url(#vectorGradient1)" stroke-width="2" fill="none" opacity="0.6" />
+          <circle class="proj_vector-dot" cx="150" cy="600" r="4" fill="#04dbd6" opacity="0.8">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.5s" />
+          </circle>
+
+          <!-- Линии от правых карточек -->
+          <path class="proj_vector-line proj_vector-line--3" d="M 1050 200 Q 800 180 600 400"
+            stroke="url(#vectorGradient2)" stroke-width="2" fill="none" opacity="0.6" />
+          <circle class="proj_vector-dot" cx="1050" cy="200" r="4" fill="#04dbd6" opacity="0.8">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="1s" />
+          </circle>
+
+          <path class="proj_vector-line proj_vector-line--4" d="M 1050 600 Q 800 620 600 400"
+            stroke="url(#vectorGradient2)" stroke-width="2" fill="none" opacity="0.6" />
+          <circle class="proj_vector-dot" cx="1050" cy="600" r="4" fill="#04dbd6" opacity="0.8">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="1.5s" />
+          </circle>
+        </svg>
+
         <div class="proj_column proj_left">
           <div class="proj_card-wrapper">
-            <div class="proj_card">
-              <div class="proj_content">Миграция инфраструктуры с хостинга на Yandex Cloud, включая серверы и CDN</div>
-            </div>
-            <div class="proj_images">
-              <img src="images/projects/ellipse1.png" class="proj_side-image ellipse ellipse1" alt="">
-              <img src="images/projects/vector1.png" class="proj_side-image vector vector1" alt="">
+            <div class="proj_card" data-vector-start="1">
+              <div class="proj_browser-header">
+                <div class="proj_browser-dots">
+                  <span class="proj_dot proj_dot--red"></span>
+                  <span class="proj_dot proj_dot--yellow"></span>
+                  <span class="proj_dot proj_dot--green"></span>
+                </div>
+                <div class="proj_browser-bar">
+                  <span class="proj_browser-url">degit.tech/cloud-migration</span>
+                </div>
+              </div>
+              <div class="proj_card-screen">
+                <div class="proj_card-visual">
+                  <img src="images/projects/proj1.png" alt="Миграция инфраструктуры" class="proj_card-image">
+                </div>
+              </div>
+              <div class="proj_card-info">
+                <h3 class="proj_card-title">Миграция инфраструктуры</h3>
+                <p class="proj_card-subtitle">Переход на Yandex Cloud с оптимизацией производительности</p>
+              </div>
             </div>
           </div>
 
           <div class="proj_card-wrapper">
-            <div class="proj_card">
-              <div class="proj_content">Миграция сервисов с systemd на Kubernetes и построение CI/CD на базе GitOps
-                (Terraform, FluxCD)</div>
-            </div>
-            <div class="proj_images">
-              <img src="images/projects/ellipse1.png" class="proj_side-image ellipse ellipse2" alt="">
-              <img src="images/projects/vector2.png" class="proj_side-image vector vector2" alt="">
+            <div class="proj_card" data-vector-start="2">
+              <div class="proj_browser-header">
+                <div class="proj_browser-dots">
+                  <span class="proj_dot proj_dot--red"></span>
+                  <span class="proj_dot proj_dot--yellow"></span>
+                  <span class="proj_dot proj_dot--green"></span>
+                </div>
+                <div class="proj_browser-bar">
+                  <span class="proj_browser-url">degit.tech/devops-solutions</span>
+                </div>
+              </div>
+              <div class="proj_card-screen">
+                <div class="proj_card-visual">
+                  <img src="images/projects/proj2.png" alt="DevOps трансформация" class="proj_card-image">
+                </div>
+              </div>
+              <div class="proj_card-info">
+                <h3 class="proj_card-title">DevOps трансформация</h3>
+                <p class="proj_card-subtitle">Kubernetes, CI/CD Pipeline, GitOps с Terraform</p>
+              </div>
             </div>
           </div>
         </div>
@@ -246,24 +320,50 @@
 
         <div class="proj_column proj_right">
           <div class="proj_card-wrapper">
-            <div class="proj_images">
-              <img src="images/projects/vector3.png" class="proj_side-image vector vector3" alt="">
-              <img src="images/projects/ellipse2.png" class="proj_side-image ellipse ellipse3" alt="">
-            </div>
-            <div class="proj_card">
-              <div class="proj_content">Построение BI-отчетности на базе Yandex Datalens для кабинетов маркетплейсов WB,
-                Ozon, YM, МойСклад и реализация сервисов сбора отчетности на Python</div>
+            <div class="proj_card" data-vector-start="3">
+              <div class="proj_browser-header">
+                <div class="proj_browser-dots">
+                  <span class="proj_dot proj_dot--red"></span>
+                  <span class="proj_dot proj_dot--yellow"></span>
+                  <span class="proj_dot proj_dot--green"></span>
+                </div>
+                <div class="proj_browser-bar">
+                  <span class="proj_browser-url">degit.tech/bi-analytics</span>
+                </div>
+              </div>
+              <div class="proj_card-screen">
+                <div class="proj_card-visual">
+                  <img src="images/projects/proj3.png" alt="BI-аналитика" class="proj_card-image">
+                </div>
+              </div>
+              <div class="proj_card-info">
+                <h3 class="proj_card-title">BI-аналитика</h3>
+                <p class="proj_card-subtitle">Отчетность для WB, Ozon, YM на Yandex Datalens</p>
+              </div>
             </div>
           </div>
 
           <div class="proj_card-wrapper">
-            <div class="proj_images">
-              <img src="images/projects/vector4.png" class="proj_side-image vector vector4" alt="">
-              <img src="images/projects/ellipse2.png" class="proj_side-image ellipse ellipse4" alt="">
-            </div>
-            <div class="proj_card">
-              <div class="proj_content">Разработка микросервисов Backend Python (FastAPI) и Django для сервисов
-                арбитража трафика</div>
+            <div class="proj_card" data-vector-start="4">
+              <div class="proj_browser-header">
+                <div class="proj_browser-dots">
+                  <span class="proj_dot proj_dot--red"></span>
+                  <span class="proj_dot proj_dot--yellow"></span>
+                  <span class="proj_dot proj_dot--green"></span>
+                </div>
+                <div class="proj_browser-bar">
+                  <span class="proj_browser-url">degit.tech/backend-services</span>
+                </div>
+              </div>
+              <div class="proj_card-screen">
+                <div class="proj_card-visual">
+                  <img src="images/projects/proj4.png" alt="Backend разработка" class="proj_card-image">
+                </div>
+              </div>
+              <div class="proj_card-info">
+                <h3 class="proj_card-title">Backend разработка</h3>
+                <p class="proj_card-subtitle">Микросервисы на Python FastAPI и Django</p>
+              </div>
             </div>
           </div>
         </div>
@@ -271,6 +371,26 @@
     </section>
 
   </main>
+
+  <!-- Модальное окно для проектов -->
+  <div class="proj-modal" id="projModal">
+  <div class="proj-modal__overlay"></div>
+  <div class="proj-modal__content">
+    <button class="proj-modal__close" aria-label="Закрыть">×</button>
+    <div class="proj-modal__header">
+      <img src="" alt="" class="proj-modal__image" id="modalImage">
+    </div>
+    <div class="proj-modal__body">
+      <h2 class="proj-modal__title" id="modalTitle"></h2>
+      <p class="proj-modal__subtitle" id="modalSubtitle"></p>
+      <div class="proj-modal__description" id="modalDescription"></div>
+      <div class="proj-modal__tech">
+        <h3>Технологии:</h3>
+        <div class="proj-modal__tech-list" id="modalTech"></div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
