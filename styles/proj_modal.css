@@ -150,3 +150,25 @@
         font-size: 16px;
     }
 }
+
+.proj-modal__header {
+  width: 100%;
+  height: auto; /* Изменено с фиксированной высоты */
+  max-height: 60vh; /* Ограничение по высоте */
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.proj-modal__image {
+  width: 100%;
+  height: auto; /* Сохранение пропорций */
+  object-fit: contain; /* Показывать полностью */
+  display: block;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .proj-modal__header {
+    max-height: 50vh;
+  }
+}
