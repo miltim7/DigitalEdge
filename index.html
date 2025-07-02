@@ -7,6 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
   <title>Digital Edge</title>
   <link rel="stylesheet" href="./styles/style.css" />
   <link rel="stylesheet" href="./styles/header.css" />
@@ -14,11 +15,31 @@
   <link rel="stylesheet" href="./styles/info.css" />
   <link rel="stylesheet" href="./styles/projects.css">
   <link rel="stylesheet" href="styles/proj_modal.css">
+  <link rel="stylesheet" href="./styles/contact-modal.css" />
+  <link rel="stylesheet" href="./styles/footer.css" />
+  
   <script src="./scripts/CursorFollow.js" defer></script>
   <script src="./scripts/Header.js" defer></script>
   <script src="./scripts/ProjectVectors.js" defer></script>
   <script src="./scripts/index.js" defer></script>
   <script src="./scripts/ProjectModal.js" defer></script>
+  <script src="./scripts/ContactModal.js" defer></script>
+  
+  <script src="./scripts/FooterAnimation.js" defer></script>
+  <script src="./scripts/HeaderAnimation.js" defer></script>
+  <script src="./scripts/HeroAnimation.js" defer></script>
+  <script src="./scripts/InfoAnimation.js" defer></script>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/gh/repalash/gilroy-free-webfont@fonts/Gilroy-Light.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/repalash/gilroy-free-webfont@fonts/Gilroy-Extrabold.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -65,9 +86,9 @@
       <h1 class="hero__title" id="hero-title">Технологии, которые решают</h1>
       <div class="hero__description">
         <p>
-          Создаём надёжные и масштабируемые цифровые продукты. Ориентированы
-          на долгосрочное сотрудничество, предоставляем подробный отчет о
-          проделанной работе.
+          Создаём надёжные и масштабируемые цифровые продукты с акцентом на архитектуру, производительность и чистоту
+          реализации.
+          Каждый этап — прозрачен, каждый результат — измерим.
         </p>
       </div>
 
@@ -118,7 +139,7 @@
               <div class="card__text">
                 <p class="card__title">Backend (Python, PHP)</p>
                 <p class="card__price h2">
-                  от $13/<span class="h3">час</span>
+                  от $12/<span class="h3">час</span>
                 </p>
               </div>
             </div>
@@ -132,7 +153,7 @@
               <div class="card__text">
                 <p class="card__title">Frontend (React, Vue)</p>
                 <p class="card__price h2">
-                  от $13/<span class="h3">час</span>
+                  от $12/<span class="h3">час</span>
                 </p>
               </div>
             </div>
@@ -212,15 +233,12 @@
           <p>Мы решаем задачи бизнеса с помощью современных технологий.</p>
           <p>Несколько реализованных кейсов:</p>
         </div>
-        <button type="button" class="projects__button button">
+        <!-- <button type="button" class="projects__button button">
           Смотреть все проекты
-        </button>
+        </button> -->
       </div>
 
-      <!-- Найдите секцию projects и замените содержимое proj_container на это: -->
-
       <div class="proj_container">
-        <!-- SVG для векторных линий -->
         <svg class="proj_vectors" viewBox="0 0 1200 800" preserveAspectRatio="none">
           <defs>
             <linearGradient id="vectorGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -338,7 +356,7 @@
               </div>
               <div class="proj_card-info">
                 <h3 class="proj_card-title">BI-аналитика</h3>
-                <p class="proj_card-subtitle">Отчетность для WB, Ozon, YM на Yandex Datalens</p>
+                <p class="proj_card-subtitle">Отчетность для e-commerce-бизнеса</p>
               </div>
             </div>
           </div>
@@ -369,28 +387,95 @@
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Модальное окно для проектов -->
-  <div class="proj-modal" id="projModal">
-  <div class="proj-modal__overlay"></div>
-  <div class="proj-modal__content">
-    <button class="proj-modal__close" aria-label="Закрыть">×</button>
-    <div class="proj-modal__header">
-      <img src="" alt="" class="proj-modal__image" id="modalImage">
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer__left">
+        <div class="footer__brand">
+          <a href="/">
+            <img class="footer__logo" src="./images/footer/logo.svg" alt="Digital Edge Logo" width="80" height="80"
+              loading="lazy" />
+          </a>
+        </div>
+
+        <nav class="footer__menu">
+          <div class="footer__menu-item">
+            <a href="#services" class="footer__menu-link">Услуги</a>
+          </div>
+          <div class="footer__menu-item">
+            <a href="#projects" class="footer__menu-link">Кейсы</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__social">
+        <a href="mailto:manager@degit.tech" class="footer__social-link footer__social-link--email" aria-label="Email">
+          <svg class="footer__social-icon" viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+        </a>
+        <a href="https://t.me/degit_tech_bot" class="footer__social-link footer__social-link--telegram"
+          aria-label="Telegram" target="_blank">
+          <svg class="footer__social-icon" viewBox="0 0 24 24">
+            <path
+              d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.787l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" />
+          </svg>
+        </a>
+      </div>
     </div>
-    <div class="proj-modal__body">
-      <h2 class="proj-modal__title" id="modalTitle"></h2>
-      <p class="proj-modal__subtitle" id="modalSubtitle"></p>
-      <div class="proj-modal__description" id="modalDescription"></div>
-      <div class="proj-modal__tech">
-        <h3>Технологии:</h3>
-        <div class="proj-modal__tech-list" id="modalTech"></div>
+
+    <div class="footer__copyright">
+      DigitalEdge IT © 2025
+    </div>
+  </footer>
+
+  <div class="proj-modal" id="projModal">
+    <div class="proj-modal__overlay"></div>
+    <div class="proj-modal__content">
+      <button class="proj-modal__close" aria-label="Закрыть">×</button>
+      <div class="proj-modal__header">
+        <img src="" alt="" class="proj-modal__image" id="modalImage">
+      </div>
+      <div class="proj-modal__body">
+        <h2 class="proj-modal__title" id="modalTitle"></h2>
+        <p class="proj-modal__subtitle" id="modalSubtitle"></p>
+        <div class="proj-modal__description" id="modalDescription"></div>
+        <div class="proj-modal__tech">
+          <h3>Технологии:</h3>
+          <div class="proj-modal__tech-list" id="modalTech"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="contact-modal" id="contactModal">
+    <div class="contact-modal__overlay"></div>
+    <div class="contact-modal__content">
+      <button class="contact-modal__close" aria-label="Закрыть">
+        ×
+      </button>
+      <h3 class="contact-modal__title">Свяжитесь с нами</h3>
+      <form class="contact-form" id="contactForm" action="send-mail.php" method="POST">
+        <input type="text" name="honeypot" style="display:none">
+        <div class="contact-form__field">
+          <input type="text" name="name" id="contactName" placeholder="Ваше имя" required>
+        </div>
+        <div class="contact-form__field">
+          <input type="email" name="email" id="contactEmail" placeholder="Ваш E-mail" required>
+        </div>
+        <div class="contact-form__field">
+          <textarea name="message" id="contactMessage" placeholder="Комментарий" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="contact-form__submit">Отправить</button>
+        <p class="contact-form__notice">
+          Нажимая кнопку "Отправить", Вы принимаете
+          <a href="#" target="_blank">Пользовательское соглашение</a>
+        </p>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
