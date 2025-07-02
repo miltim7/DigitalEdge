@@ -22,8 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
     $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : '';
-    $message = isset($_POST['message']) ? strip_tags(trim($_POST['message'])) : '';
+    $message = isset($_POST['message']) ? trim($_POST['message']) : ''; // Убрал strip_tags для комментария
     
+    // Детальная валидация
     if (empty($name)) {
         http_response_code(400);
         echo json_encode(['status' => 'error', 'message' => 'Поле "Имя" обязательно для заполнения']);
@@ -60,24 +61,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
     
-    if (strlen($message) < 10) {
+    if (strlen($message) < 1) {
         http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => 'Сообщение должно содержать минимум 10 символов']);
+        echo json_encode(['status' => 'error', 'message' => 'Сообщение должно содержать минимум 5 символов']);
         exit;
     }
     
-    if (strlen($message) > 1000) {
+    if (strlen($message) > 2000) {
         http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => 'Сообщение не должно превышать 1000 символов']);
+        echo json_encode(['status' => 'error', 'message' => 'Сообщение не должно превышать 2000 символов']);
         exit;
     }
     
-    if (preg_match('/https?:\/\//', $message) || preg_match('/\b(?:viagra|casino|loan|credit)\b/i', $message)) {
-        logError("Spam detected from IP: " . $_SERVER['REMOTE_ADDR'] . ", Email: " . $email);
-        http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => 'Сообщение содержит недопустимые ссылки или содержимое']);
-        exit;
-    }
+    // Убрал проверку на спам - теперь можно писать что угодно
     
     $to = "manager@degit.tech";
     $subject = "=?UTF-8?B?" . base64_encode("Новое сообщение с сайта Digital Edge") . "?=";
@@ -98,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Return-Path: noreply@degit.tech\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
     
+    // Попытка отправки с детальным логированием
     $mailResult = @mail($to, $subject, $body, $headers, '-f noreply@degit.tech');
     
     if ($mailResult) {

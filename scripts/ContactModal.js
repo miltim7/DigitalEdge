@@ -29,7 +29,7 @@ class ContactModal {
         });
 
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-        
+
         // Валидация в реальном времени
         this.nameField.addEventListener('blur', () => this.validateName());
         this.emailField.addEventListener('blur', () => this.validateEmail());
@@ -63,12 +63,12 @@ class ContactModal {
 
     validateMessage() {
         const message = this.messageField.value.trim();
-        if (message.length < 10) {
-            this.showFieldError(this.messageField, 'Сообщение должно содержать минимум 10 символов');
+        if (message.length < 1) {
+            this.showFieldError(this.messageField, 'Сообщение должно содержать минимум 1 символ');
             return false;
         }
-        if (message.length > 1000) {
-            this.showFieldError(this.messageField, 'Сообщение не должно превышать 1000 символов');
+        if (message.length > 2000) {
+            this.showFieldError(this.messageField, 'Сообщение не должно превышать 2000 символов');
             return false;
         }
         this.clearFieldError(this.messageField);
@@ -120,16 +120,16 @@ class ContactModal {
 
     async handleSubmit(e) {
         e.preventDefault();
-        
+
         // Валидация перед отправкой
         const isNameValid = this.validateName();
         const isEmailValid = this.validateEmail();
         const isMessageValid = this.validateMessage();
-        
+
         if (!isNameValid || !isEmailValid || !isMessageValid) {
             return;
         }
-        
+
         const formData = new FormData(this.form);
         const submitButton = this.form.querySelector('.contact-form__submit');
         const originalText = submitButton.textContent;
@@ -177,7 +177,7 @@ class ContactModal {
             submitButton.textContent = 'Ошибка!';
             submitButton.style.background = '#dc3545';
             submitButton.style.opacity = '1';
-            
+
             // Показываем пользователю конкретную ошибку
             alert('Ошибка: ' + error.message);
 
